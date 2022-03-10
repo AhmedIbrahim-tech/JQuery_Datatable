@@ -21,7 +21,6 @@ namespace JQueryDatatable.Controllers
         {
             var pageSize = int.Parse(Request.Form["length"]);
             var skip = int.Parse(Request.Form["start"]);
-
             var searchValue = Request.Form["search[value]"];
 
             var sortColumn = Request.Form[string.Concat("columns[", Request.Form["order[0][column]"], "][name]")];
@@ -36,8 +35,10 @@ namespace JQueryDatatable.Controllers
 
             var data = customers.Skip(skip).Take(pageSize).ToList();
 
+            // Count of page that add in Pagination
             var recordsTotal = customers.Count();
 
+            // To Build JQuery Data-Tables
             var jsonData = new { recordsFiltered = recordsTotal, recordsTotal, data };
 
             return Ok(jsonData);

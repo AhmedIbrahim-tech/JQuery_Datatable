@@ -28,7 +28,7 @@
                 "render": function (data, type, row) { return '<a href="#" class="btn btn-danger" onclick=DeleteCustomer("' + row.id + '"); > Delete </a>' },
                 "orderable": false
             },
-            
+
         ]
     });
 });
